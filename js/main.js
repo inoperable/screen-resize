@@ -1,75 +1,41 @@
-    function initialize() {
-        console.log(this.constructor.name + ' :: Initializing');
+function initialize() {
+    console.log(this.constructor.name + ' :: Initializing');
+    // GlobalVariables
+    LU = LoudUtils;
+    jQuery.easing.def ='easeOutQuad';
+};
 
-        // GlobalVariables
-        LU = LoudUtils;
+$(window).on("debouncedresize", function( event ) {
+    console.log('resizing...');
+    var canvas = $('#canvas');
+    var main = $('#main');
+    scaleToCenter($(canvas),50,555);
+    moveToCenter($(main),$(canvas),555);
+});
 
-        var canvas = document.getElementById('canvas');
-        var divmain = document.getElementById('main');
+function moveToCenter(obj,container,duration) {
+    var style = LU.centerObject(obj,container);
+    $(obj)
+        .stop()
+        .animate({
+        top: style["top"],
+        left: style["left"]
+    },555,'easeInOutQuad');
+}
 
-        // mouse event listeners
-        setupEventListeners();
+function scaleToCenter(obj, offset,duration) {
+    var style = {
+        top: offset,
+        left: offset,
+        width: (window.innerWidth - (2*offset)),
+        height: (window.innerHeight - (2*offset))
     }
-
-    function setupEventListeners(options) {
-
-        $(window)
-            .on("debouncedresize", function(e) {
-            scaleToCenter(divmain,20,600);
-            moveToCenter(canvas,divmain,600);
-        });
-
-        // $(window)
-        //     .mousedown(function(e) {
-
-        // });
-
-        // $(window)
-        //     .mouseenter(function(e) {
-
-        // });
-
-        // $(window)
-        //     .mouseleave(function(e) {
-
-        // });
-
-        // $(window)
-        //     .mouseup(function(e) {
-
-        // });
-
-
-        //$(window).mousemove(function(){
-        //
-        //});
-    }
-
-    function moveToCenter(obj,container,duration) {
-        duration === undefined ? this.duration = 400 : this.duration = duration;
-        var style = LU.centerObject(obj,container);
-        $(obj)
-            .stop()
-            .animate({
-            top: style["top"],
-            left: style["left"]
-        },this.duration);
-    }
-
-    function scaleToCenter(obj, offset,duration) {
-        duration === undefined ? this.duration = 400 : this.duration = duration;
-        var style = {
-            top: offset,
-            left: offset,
-            width: (window.innerWidth - 2*offset),
-            height: (window.innerHeight - 2*offset)
-        }
-        $(obj)
-            .stop()
-            .animate({
-            top: style["top"],
-            left: style["left"],
-            width: style["width"],
-            height: style["height"]
-        },this.duration);
-    }
+    $(obj)
+        .stop()
+        .animate({
+        top: style["top"],
+        left: style["left"],
+        width: style["width"],
+        height: style["height"]
+    },555,'easeInOutQuad');
+}

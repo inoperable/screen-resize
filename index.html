@@ -32,52 +32,29 @@
 
 <!-- site  content -->
 <div id="main" role="main" class="main">
-    <header id="header">
-        <h1>Canvas Experiments</h1>
+<!--       <header id="header">
+          <h1>Backbone Examples</h1>
 
-        <p id="subline">Sub headline text goes here</p>
-    </header>
+          <p id="subline">Backbone 0.9.2 - November, 2012</p>
+      </header> -->
     <div id="container">
         <canvas id="canvas" width="0" height="0"></canvas>
     </div>
-    <footer id="footer">
+<!--     <footer id="footer">
         <p>Copyright notification</p>
-    </footer>
+    </footer> -->
 </div>
 
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/underscore.min.js"></script>
 <script src="js/vendor/backbone.min.js"></script>
 <script src="js/plugins/jquery.debouncedresize.js"></script>
+<script src="js/plugins/jquery.easing.js"></script>
+<script src="js/loudutils.js"></script>
 <script src="js/main.js"></script>
-
 <script>
-    $(document).ready(function () {
-
-        var ccont  = $('#container').get[0];
-        var header = $('#header').get[0];
-        var footer = $('#footer').get[0];
-        var canvas = $('#canvas').get[0];
-        var ctx = canvas.getContext('2d');
-
-        canvas.style.height = window.innerHeight+'px';
-
-        $(window).mouseup(function (e) {
-            console.log('mouseup...');
-        });
-
-
-        $(window).mousedown(function (e) {
-            console.log('mouse down...');
-        });
-
-        $(window).resize(function(){
-            console.log(canvas.getBoundingClientRect());
-        });
-
-        $(window).scroll(function (e) {
-            console.log('is scrolling...');
-        });
+    $(document).ready(function(){
+       initialize();
     });
 </script>
 </body>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700,200italic,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+    today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+    experience this site.</p>
+<![endif]-->
+
+<!-- site  content -->
+<div id="main" role="main" class="main">
+    <header id="header">
+        <h1>Canvas Experiments</h1>
+
+        <p id="subline">Sub headline text goes here</p>
+    </header>
+    <div id="container">
+        <canvas id="canvas" width="0" height="0"></canvas>
+    </div>
+    <footer id="footer">
+        <p>Copyright notification</p>
+    </footer>
+</div>
+
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/underscore.min.js"></script>
+<script src="js/vendor/backbone.min.js"></script>
+<script src="js/plugins/jquery.debouncedresize.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var ccont  = $('#container').get[0];
+        var header = $('#header').get[0];
+        var footer = $('#footer').get[0];
+        var canvas = $('#canvas').get[0];
+        var ctx = canvas.getContext('2d');
+
+        canvas.style.height = window.innerHeight+'px';
+
+        $(window).mouseup(function (e) {
+            console.log('mouseup...');
+        });
+
+
+        $(window).mousedown(function (e) {
+            console.log('mouse down...');
+        });
+
+        $(window).resize(function(){
+            console.log(canvas.getBoundingClientRect());
+        });
+
+        $(window).scroll(function (e) {
+            console.log('is scrolling...');
+        });
+    });
+</script>
+</body>
+</html>
